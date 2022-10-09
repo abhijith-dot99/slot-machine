@@ -1,6 +1,39 @@
+import random
+
 MAX_LINE = 3
 MAX_BET = 100
 MIN_BET = 1
+
+ROWS = 3
+COLS = 3
+
+symbol_count = {
+    "A":2,"B":4,"C":6,"D":8
+}
+def getslot_onspin(rows,cols,symbol):
+    all_symbols = []
+    for symbol,symbol_count in symbol.items():
+        for _ in range(symbol_count):
+            all_symbols.append(symbol)
+    columns = []
+    for _ in range(cols):
+        column = []
+        current_symbol = all_symbol[:]
+        for _ in range(rows):
+            value = random,choice(current_symbol)
+            current_symbol.remove(value)
+            column.append(value)
+        columns.append(column)        
+    return columns
+
+def print_slot(colums):
+    for row in range(len(columns[0])):
+        for i, column in enumerate(columns):
+            if i != len(columns) - 1:
+                print (column[row], "|")
+            else:
+                print (column[row])
+
 def deposit():
     while True:
         amount = (input("enter the amount that you would like to deposit $"))
@@ -57,6 +90,8 @@ def main():
             print("insufficient balace, your balance is $ ",balance)
         else :
             break
+
+        
     print (f"you are betting ${bet} on {lines} lines . Total bet is equal to: ${total_bet}")
     
 main()
